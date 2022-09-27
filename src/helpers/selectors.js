@@ -23,14 +23,19 @@ export function getInterview(state, interview) {
     interviewer: state.interviewers[interview.interviewer]
   };
   return result;
-  
-  // const interviewDetails = {...interview};
-  // const interviewers = Object.values(state.interviewers);
-  // for (const interviewer of interviewers) {
-  //   if (interview.interviewer === interviewer.id) {
-  //     interviewDetails.interviewer = interviewer;
-  //   }
-  // }
-  // console.log("interviewDetails:", interviewDetails);
-  // return interviewDetails;
+};
+
+export function getInterviewersForDay(state, day) {
+  let dayInts = [];
+  let intsDetails = [];
+  for (const weekday of state.days) { 
+    if (weekday.name === day) {
+      dayInts = weekday.interviewers;   
+    };  
+  };
+  for (const interviewer of dayInts) {
+    const ints = state.interviewers[interviewer.toString()];
+    intsDetails.push(ints);
+  }
+  return intsDetails;
 };
