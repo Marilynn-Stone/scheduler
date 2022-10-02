@@ -26,9 +26,15 @@ export default function Application(props) {
 			...state.appointments,
 			[id]: appointment
 		};
-		setState({...state, appointments});
-		console.log(id, interview);
-	}
+		
+		return axios.put(`/api/appointments/${id}`, {interview})
+			.then((res) => {
+				setState({...state, appointments});	
+			})
+			.catch((err) => {
+				console.log("Could not update appointment.");
+			});
+		}
 
 	const setDay = day => setState({...state, day});
 
