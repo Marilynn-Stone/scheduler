@@ -5,7 +5,7 @@ import InterviewerListItem from "./InterviewerListItem";
 export default function (props) {
 	const { interviewers, value, onChange } = props;
 
-	const interviewerList = interviewers.map((interviewerItem) => {
+	const interviewer = interviewers.map((interviewerItem) => {
 		return (
 			<InterviewerListItem
 				key={interviewerItem.id}
@@ -17,11 +17,12 @@ export default function (props) {
 		);
 	});
 
+
 	return (
 		<section className="interviewers">
 			<h4 className="interviewers__header text--light">Interviewer</h4>
 			<ul className="interviewers__list">
-				<>{interviewerList}</>
+				<>{interviewer}</>
 			</ul>
 		</section>
 	);

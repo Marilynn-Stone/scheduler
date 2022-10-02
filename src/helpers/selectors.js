@@ -37,5 +37,6 @@ export function getInterviewersForDay(state, day) {
     const ints = state.interviewers[interviewer.toString()];
     intsDetails.push(ints);
   }
+
   return intsDetails;
 };
