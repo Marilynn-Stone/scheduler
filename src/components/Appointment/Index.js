@@ -12,11 +12,19 @@ export default function Appointment(props) {
 	const SHOW = "SHOW";
 	const CREATE = "CREATE";
 	
-	const { id, time, interview, interviewers, save } = props;
+	const { id, time, interview, interviewers, bookInterview} = props;
 	const { mode, transition, back } = useVisualMode(
 		interview ? SHOW : EMPTY
 	);
 
+	function save(name, interviewer, id) {
+  	const interview = {
+    	student: name,
+    	interviewer
+  	};
+		bookInterview(id, interview);
+		transition(SHOW);
+	}
 
 	return (
 		<article className="appointment">
