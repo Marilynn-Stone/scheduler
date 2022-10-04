@@ -17,8 +17,31 @@ export default function Application(props) {
 		interviewers: {}
 	});
 
+  const setDay = day => setState({...state, day});
+  
+	function cancelInterview(id) {
+		
+    const appointment = {
+			...state.appointments[id],
+			interview: null
+		};
+		const appointments = {
+			...state.appointments,
+			[id]: appointment
+		};
+
+		return axios.delete (`/api/appointments/${id}`)
+			.then((res) => {
+				setState({...state, appointments});
+			})
+			.catch((err) => {
+				console.log("Could not delete appointment.");
+			})
+	};
+	
 	function bookInterview(id, interview) {
-  	const appointment = {
+  	
+    const appointment = {
 			...state.appointments[id],
 			interview: { ...interview }
 		};
@@ -33,10 +56,8 @@ export default function Application(props) {
 			})
 			.catch((err) => {
 				console.log("Could not update appointment.");
-			});
-		}
-
-	const setDay = day => setState({...state, day});
+			})
+		};
 
 	useEffect(() => {
 		Promise.all([
@@ -53,7 +74,6 @@ export default function Application(props) {
 
 	const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-		
 		return (
 			<Appointment
 				key={appointment.id}
@@ -62,6 +82,7 @@ export default function Application(props) {
 				interview={interview}
 				interviewers={interviewers}
 				bookInterview={bookInterview}
+				cancelInterview={cancelInterview}
 			/>
 		);
   });
