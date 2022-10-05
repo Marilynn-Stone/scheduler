@@ -7,9 +7,8 @@ import "components/Appointment";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
-
 export default function Application(props) {
-
+  
   const [state, setState] = useState({
 		day: "Monday",
 		days: [],
@@ -34,9 +33,6 @@ export default function Application(props) {
 			.then((res) => {
 				setState({...state, appointments});
 			})
-			.catch((err) => {
-				console.log("Could not delete appointment.");
-			})
 	};
 	
 	function bookInterview(id, interview) {
@@ -53,9 +49,6 @@ export default function Application(props) {
 		return axios.put(`/api/appointments/${id}`, {interview})
 			.then((res) => {
 				setState({...state, appointments});	
-			})
-			.catch((err) => {
-				console.log("Could not update appointment.");
 			})
 		};
 
