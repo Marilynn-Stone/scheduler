@@ -4,7 +4,9 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 
 ## Screenshots
 
-!["Create Interview"](https://github.com/Marilynn-Stone/schedulerB/blob/384ae61c7ebb3482dda0e717a382c4192baf580d/Create%20Interview.png))
+### Create an interview by entering a student and selecting an interviewer.
+!["Create Interview"](https://github.com/Marilynn-Stone/schedulerB/blob/384ae61c7ebb3482dda0e717a382c4192baf580d/Create%20Interview.png)
+### Delete an interview.
 !["Delete Interview"](https://github.com/Marilynn-Stone/schedulerB/blob/384ae61c7ebb3482dda0e717a382c4192baf580d/Delete%20Interview.png)
 
 ## Dependencies
