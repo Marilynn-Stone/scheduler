@@ -3,19 +3,23 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import "components/Appointment";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+import {
+	getAppointmentsForDay,
+	getInterview,
+	getInterviewersForDay,
+} from "helpers/selectors";
 import useApplicationData from "../hooks/useApplicationData.js";
 
 export default function Application(props) {
-  
-  const { state, setDay, bookInterview,  cancelInterview } = useApplicationData();
+	const { state, setDay, bookInterview, cancelInterview } =
+		useApplicationData();
 
-  const interviewers = getInterviewersForDay(state, state.day);
-  
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
+	const interviewers = getInterviewersForDay(state, state.day);
+
+	const dailyAppointments = getAppointmentsForDay(state, state.day);
 
 	const schedule = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
+		const interview = getInterview(state, appointment.interview);
 		return (
 			<Appointment
 				key={appointment.id}
@@ -27,9 +31,9 @@ export default function Application(props) {
 				cancelInterview={cancelInterview}
 			/>
 		);
-  });
+	});
 
-  return (
+	return (
 		<main className="layout">
 			<section className="sidebar">
 				<img
@@ -39,10 +43,7 @@ export default function Application(props) {
 				/>
 				<hr className="sidebar__separator sidebar--centered" />
 				<nav className="sidebar__menu">
-					<DayList
-						days={state.days}
-						value={state.day}
-						onChange={setDay} />
+					<DayList days={state.days} value={state.day} onChange={setDay} />
 				</nav>
 				<img
 					className="sidebar__lhl sidebar--centered"

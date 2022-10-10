@@ -46,7 +46,7 @@ export default function Appointment(props) {
 		bookInterview(id, interview)
 			.then(() => transition(SHOW))
 			.catch((err) => {
-				transition(ERROR_SAVE);
+				transition(ERROR_SAVE, true);
 			});
 	}
 
@@ -56,14 +56,14 @@ export default function Appointment(props) {
 	}
 
 	return (
-		<article className="appointment">
+		<article className="appointment" data-testid="appointment">
 			<Header time={time} />
 			{mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
 			{mode === SAVING && <Status message={"Saving"} />}
 			{mode === ERROR_SAVE && (
 				<Error
 					message="Could not save appointment."
-					onClose={() => transition(SHOW)}
+					onClose={() => transition(CREATE)}
 				/>
 			)}
 			{mode === DELETING && <Status message={"Deleting"} />}

@@ -19,6 +19,7 @@ describe("Form", () => {
 		const { getByPlaceholderText } = render(
 			<Form interviewers={interviewers} />
 		);
+
 		expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
 	});
 
@@ -26,6 +27,7 @@ describe("Form", () => {
 		const { getByTestId } = render(
 			<Form interviewers={interviewers} student="Lydia Miller-Jones" />
 		);
+
 		expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
 	});
 
@@ -34,6 +36,7 @@ describe("Form", () => {
 		const { getByText } = render(
 			<Form interviewers={interviewers} onSave={onSave} />
 		);
+
 		fireEvent.click(getByText("Save"));
 
 		expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
@@ -49,6 +52,7 @@ describe("Form", () => {
 				onSave={onSave}
 			/>
 		);
+
 		fireEvent.click(getByText("Save"));
 
 		expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
@@ -74,11 +78,9 @@ describe("Form", () => {
 		fireEvent.change(getByPlaceholderText("Enter Student Name"), {
 			target: { value: "Lydia Miller-Jones" },
 		});
-
 		fireEvent.click(getByText("Save"));
 
 		expect(queryByText(/student name cannot be blank/i)).toBeNull();
-
 		expect(onSave).toHaveBeenCalledTimes(1);
 		expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1, 1);
 	});
@@ -95,17 +97,13 @@ describe("Form", () => {
 		);
 
 		fireEvent.click(getByText("Save"));
-
 		fireEvent.change(getByPlaceholderText("Enter Student Name"), {
 			target: { value: "Lydia Miller-Jones" },
 		});
-
 		fireEvent.click(getByText("Cancel"));
 
 		expect(queryByText(/student name cannot be blank/i)).toBeNull();
-
 		expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
-
 		expect(onCancel).toHaveBeenCalledTimes(1);
 	});
 });

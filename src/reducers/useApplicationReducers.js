@@ -46,14 +46,16 @@ const setInterview = (state, action) => {
 };
 
 const reducers = {
-  [SET_DAY]: setDay,
-  [SET_APPLICATION_DATA]: setApplicationData,
-  [SET_INTERVIEW]: setInterview
+	[SET_DAY]: setDay,
+	[SET_APPLICATION_DATA]: setApplicationData,
+	[SET_INTERVIEW]: setInterview,
 };
 
 export default function useReducer(state, action) {
-  if (reducers[action.type]) {
-    return reducers[action.type](state, action);
-  }
-  throw new Error( `Tried to reduce with unsupported action type: ${action.type}`);
-}  
+	if (reducers[action.type]) {
+		return reducers[action.type](state, action);
+	}
+	throw new Error(
+		`Tried to reduce with unsupported action type: ${action.type}`
+	);
+}
