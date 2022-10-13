@@ -79,11 +79,30 @@ export default {
 			});
 		}
 	}),
+
 	put: jest.fn((url) => {
 		if (url === `/api/appointments/${fixtures.appointments[1].id}`) {
 			return Promise.resolve({
 				status: 204,
 				statusText: "No Content",
+				data: fixtures.appointments,
+			});
+		}
+
+		if (url === `/api/appointments/${fixtures.appointments[2].id}`) {
+			return Promise.resolve({
+				status: 204,
+				statusText: "No Content",
+				data: fixtures.appointments,
+			});
+		}
+	}),
+
+	delete: jest.fn((url) => {
+		if (url === `/api/appointments/${fixtures.appointments[2].id}`) {
+			return Promise.resolve({
+				status: 200,
+				statusText: "OK",
 				data: fixtures.appointments,
 			});
 		}
