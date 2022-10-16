@@ -1,3 +1,5 @@
+// Main component where the user can create, edit and delete appointments.
+
 import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "./Header.js";

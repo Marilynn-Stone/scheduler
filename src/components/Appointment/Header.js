@@ -1,3 +1,5 @@
+// Displays the time slot for each available appointment.
+
 import React from "react";
 
 export default function Header(props) {

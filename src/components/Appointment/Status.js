@@ -1,3 +1,5 @@
+// Displays an async status indicator when making HTTP requests.
+
 import React from "react";
 
 export default function Status(props) {

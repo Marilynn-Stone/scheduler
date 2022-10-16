@@ -1,3 +1,5 @@
+// Displays form that allows student to book an interview with a specific interviewer.
+
 import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "../Button";

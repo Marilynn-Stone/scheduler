@@ -1,3 +1,5 @@
+// Displays an error message if deleting or saving an interview fails.
+
 import React from "react";
 
 export default function Error(props) {

@@ -1,3 +1,5 @@
+// Displays a booked interview and shows the student and interviewer.
+
 import React from "react";
 
 export default function Show(props) {

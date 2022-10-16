@@ -19,7 +19,6 @@ describe("Form", () => {
 		const { getByPlaceholderText } = render(
 			<Form interviewers={interviewers} />
 		);
-
 		expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
 	});
 
@@ -27,7 +26,6 @@ describe("Form", () => {
 		const { getByTestId } = render(
 			<Form interviewers={interviewers} student="Lydia Miller-Jones" />
 		);
-
 		expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
 	});
 

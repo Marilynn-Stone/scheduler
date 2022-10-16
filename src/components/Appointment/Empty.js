@@ -1,3 +1,5 @@
+//Displays button to add an interview.
+
 import React from "react";
 
 export default function Empty(props) {

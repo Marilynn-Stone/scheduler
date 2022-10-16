@@ -1,3 +1,5 @@
+// Displays confirmation message before deleting interview.
+
 import React from "react";
 import Button from "components/Button";
 
