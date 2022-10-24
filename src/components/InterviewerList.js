@@ -4,16 +4,17 @@ import InterviewerListItem from "./InterviewerListItem";
 import PropTypes from "prop-types";
 
 function InterviewerList(props) {
-	const { interviewers, value, onChange } = props;
+	const { interviewers, setInterviewer, value } = props;
 
 	const interviewer = interviewers.map((interviewerItem) => {
 		return (
 			<InterviewerListItem
 				key={interviewerItem.id}
+				id={interviewerItem.id}
 				name={interviewerItem.name}
 				avatar={interviewerItem.avatar}
 				selected={value === interviewerItem.id}
-				setInterviewer={() => onChange(interviewerItem.id)}
+				setInterviewer={setInterviewer}
 			/>
 		);
 	});
