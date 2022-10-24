@@ -1,3 +1,5 @@
+// takes in two arguments, state and day, and returns an array of appointments for the given day
+
 export function getAppointmentsForDay(state, day) {
 	let dayApts = [];
 	let aptsDetails = [];
@@ -13,6 +15,8 @@ export function getAppointmentsForDay(state, day) {
 	return aptsDetails;
 }
 
+// takes in an object that contains an interviewer, and returns a new object containing the interview data
+
 export function getInterview(state, interview) {
 	if (interview === null) {
 		return null;
@@ -23,6 +27,8 @@ export function getInterview(state, interview) {
 	};
 	return result;
 }
+
+// takes in two arguments, state and day, and returns an array of interviewers for the given day
 
 export function getInterviewersForDay(state, day) {
 	let dayInts = [];

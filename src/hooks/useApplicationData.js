@@ -1,3 +1,5 @@
+// this hook is responsible for passing data to other components
+
 import { useEffect, useReducer } from "react";
 import axios from "axios";
 import reducer, {
@@ -14,9 +16,14 @@ export default function useApplicationData() {
 		interviewers: {},
 	});
 
+	// used to set the current day
+
 	const setDay = (day) => {
 		dispatch({ type: SET_DAY, value: day });
 	};
+
+	// retrieves data from our API
+	// runs all promises concurrently, and when all resolve updates the state
 
 	useEffect(() => {
 		Promise.all([
@@ -36,11 +43,15 @@ export default function useApplicationData() {
 		});
 	}, []);
 
+	// make a request to our API to delete an appointment and set the interview data to null
+
 	function cancelInterview(id) {
 		return axios.delete(`/api/appointments/${id}`).then((res) => {
 			dispatch({ type: SET_INTERVIEW, id, interview: null });
 		});
 	}
+
+	// make a request to our API to update the appointment with the interview
 
 	function bookInterview(id, interview) {
 		return axios.put(`/api/appointments/${id}`, { interview }).then((res) => {

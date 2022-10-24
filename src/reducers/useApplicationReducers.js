@@ -2,6 +2,8 @@ export const SET_DAY = "SET_DAY";
 export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
 
+// counts the number of appointments with a null interview
+
 const countNullInterviews = (day, appointments) => {
 	let count = 0;
 	for (const id of day.appointments) {
@@ -11,6 +13,8 @@ const countNullInterviews = (day, appointments) => {
 	}
 	return count;
 };
+
+// when an appointment is booked or deleted, the number of spots remaining in the day is updated
 
 const updateSpots = (days, appointments) => {
 	return days.map((day) => {

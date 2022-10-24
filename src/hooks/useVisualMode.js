@@ -1,8 +1,12 @@
 import { useState } from "react";
 
+// this hook manages the visual mode of any component
+
 export default function useVisualMode(initial) {
 	const [mode, setMode] = useState(initial);
 	const [history, setHistory] = useState([initial]);
+
+	// this function takes in a new mode, updates the mode state with the new value, and adds the new mode to our history array
 
 	const transition = (newMode, replace = false) => {
 		setMode(newMode);
@@ -18,6 +22,8 @@ export default function useVisualMode(initial) {
 			});
 		}
 	};
+
+	// this function sets the mode to the previous item in our history array
 
 	const back = () => {
 		if (history.length <= 1) {
