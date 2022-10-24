@@ -49,7 +49,7 @@ export default function Form(props) {
 					<InterviewerList
 						interviewers={interviewers}
 						value={interviewer}
-						onChange={setInterviewer}
+						setInterviewer={setInterviewer}
 					/>
 				</form>
 			</section>
@@ -58,7 +58,7 @@ export default function Form(props) {
 					<Button danger onClick={cancel}>
 						Cancel
 					</Button>
-					<Button confirm onClick={(event) => validate()}>
+					<Button confirm onClick={validate}>
 						Save
 					</Button>
 				</section>
