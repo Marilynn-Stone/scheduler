@@ -5,8 +5,11 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 ## Screenshots
 
 ### Create an interview by entering a student and selecting an interviewer.
+
 !["Create Interview"](https://github.com/Marilynn-Stone/schedulerB/blob/384ae61c7ebb3482dda0e717a382c4192baf580d/Create%20Interview.png)
+
 ### Delete an interview.
+
 !["Delete Interview"](https://github.com/Marilynn-Stone/schedulerB/blob/384ae61c7ebb3482dda0e717a382c4192baf580d/Delete%20Interview.png)
 
 ## Dependencies
@@ -19,7 +22,7 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 ## Getting Started
 
 1. Install dependencies using the `npm install` command.
-2. Fork and clone scheduler-api.
-3. Follow the instructions in the README.md file.
+2. Fork and clone scheduler-api. <https://github.com/Marilynn-Stone/scheduler-api.git>
+3. Follow the instructions in the scheduler-api README.md file.
 4. Start the web server using the `npm start` command. The app will be served at <http://localhost:8000/>.
 5. Go to <http://localhost:8000/> in your browser.
