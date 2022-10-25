@@ -14,7 +14,7 @@ function InterviewerList(props) {
 				name={interviewerItem.name}
 				avatar={interviewerItem.avatar}
 				selected={value === interviewerItem.id}
-				setInterviewer={setInterviewer}
+				setInterviewer={() => setInterviewer(interviewerItem.id)}
 			/>
 		);
 	});
